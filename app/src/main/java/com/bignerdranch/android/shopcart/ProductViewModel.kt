@@ -3,7 +3,6 @@ package com.bignerdranch.android.shopcart
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bignerdranch.android.shopcart.database.ProductRepository
 import kotlinx.coroutines.launch
 
 class ProductViewModel : ViewModel(){
@@ -15,7 +14,12 @@ class ProductViewModel : ViewModel(){
         viewModelScope.launch {
             productRepository.addProduct(product)
         }
+    }
 
+    fun readAllProducts() {
+        viewModelScope.launch {
+            productRepository.readAllProducts()
+        }
     }
 
 }

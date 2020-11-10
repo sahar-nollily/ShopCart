@@ -12,5 +12,5 @@ interface ProductDao{
     fun getProducts():LiveData<List<Product>>
 
     @Insert
-    suspend fun addProduct(product: Product)
+    suspend fun addProduct(vararg product: Product)
 }

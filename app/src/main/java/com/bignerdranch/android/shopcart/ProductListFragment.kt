@@ -1,8 +1,6 @@
 package com.bignerdranch.android.shopcart
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,11 +33,6 @@ class ProductListFragment : Fragment() {
         })
         recyclerView.adapter = adapter
 
-        view.floatingActionButton.setOnClickListener {
-            var product1 = Product(0,"item1",13.50,"http://placeimg.com/640/480/business")
-            productViewModel.addProduct(product1)
-        }
-
         return view
     }
 
@@ -53,7 +46,7 @@ class ProductListFragment : Fragment() {
 
         fun bind(product: Product){
             this.product= product
-            Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(productImage)
+            Picasso.get().load("${product.productImg.replace("http","https")}").into(productImage)
             productName.text = product.productName
             productPrice.text = product.productPrice.toString()
 
